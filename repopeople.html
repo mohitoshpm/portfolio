@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    img{
+        width: 100px; 
+        padding: 10px;
+    }
+    .list-body{
+        width: 500px;
+    margin: 0 auto;
+    padding: 20px 59px;
+    }
+    .list-body tr{
+        background-color: #e9e7e7;
+    }
+    .user-info{
+        padding: 10px;
+    }
+    .user-info-td{
+        width: 100%;
+    }
+
+</style>
+</head>
+<body>
+    
+   
+    <div class="list-body">
+        <button id="grab">Load GitHub Users</button>
+        <h1>Github Users</h1>
+        <table>
+            <tbody id="userList">
+        
+            </tbody>
+        </table>
+    </div>
+
+
+    <script> 
+        document.getElementById('grab').addEventListener('click', showValues);
+        function showValues() {
+            var req = new XMLHttpRequest();
+            req.open('GET','https://api.github.com/users',true );
+    
+            req.onload = function(){
+                if(req.status==200){
+                var usersJson = JSON.parse(req.responseText);
+                var display = '';
+                console.log(usersJson);
+    
+                for (var i in usersJson){
+                    display += 
+                    '<tr>'+
+           ' <td>'+
+                '<img src="'+usersJson[i].avatar_url+'" alt="" srcset="">'+
+            '</td>'+
+            '<td class="user-info-td">'+
+                '<div class="user-info">'+
+                '<div>'+
+                    'ID: '+ usersJson[i].id +
+                '</div>'+
+                '<div>'+
+                    'Login: ' + usersJson[i].login +
+                '</div>'+
+                '</div>'+
+            '</td>'+
+        '</tr>';
+
+                }
+
+                document.getElementById('userList').innerHTML=display;
+            }
+        }
+            req.send();
+        }
+        showValues();
+        </script>
+
+</body>
+
+
+
+</html>
