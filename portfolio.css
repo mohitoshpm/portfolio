@@ -7,7 +7,7 @@
     margin: 3px;
     width: 65%;
 }
-#sidebar{
+.sidebar{
     float: right;
     border: 1px gray solid;
     border-radius: 3px;
@@ -34,7 +34,7 @@ nav li{
     border-top: 1px gainsboro solid;
 }
 .round{
-    height: 80px;
+    height: 130px;
     width: 130px;
     display: inline-block;
     background-color: aliceblue;
@@ -47,6 +47,9 @@ nav li{
 }
 .round img{
     height: 80px;
+}
+.round p{
+    font-size: 14px;
 }
 footer{
     background-color: #162327;
@@ -67,3 +70,19 @@ footer p{
     font-size: 40px;
     font-weight: bold;
 }
+#education ul li , #employed ul li {
+    margin-bottom: 20px;
+}
+#education ul li span,  #employed ul li span{
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+}
+
+.Programming-Skills span{
+    font-size: 12px;
+}
+.sidebar ul li{
+    margin-bottom: 8px;
+}    
