@@ -86,3 +86,15 @@ a{
 .sidebar ul li{
     margin-bottom: 8px;
 }    
+
+@media screen and (max-width: 600px) {
+    .sidebar{
+        display: none;
+    }
+    #container{
+        width: 90%;
+    }
+    .profile-name{
+        font-size: 28px;
+    }
+  }
